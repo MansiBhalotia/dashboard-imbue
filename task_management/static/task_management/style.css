@@ -6,7 +6,7 @@ body {
 
 .sidebar {
   position: absolute;
-  height: 95%;
+  min-height: 95%;
   width: 10%;
   top: 2.5%;
   display: flex;
@@ -36,7 +36,7 @@ body {
 }
 
 .content {
-  height: 95%;
+  min-height: 95%;
   width: 89%;
   background-color: #ddeaf3;
   position: absolute;
@@ -44,17 +44,22 @@ body {
   top: 2.5%;
   right: 2.5%;
   border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
 }
-.content .navbar {
+.content .left-content {
+  width: 1000px;
+}
+.content .left-content .navbar-left {
   margin: 30px 0 10px 30px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
 }
-.content .navbar .search-bar {
+.content .left-content .navbar-left .search-bar {
   position: relative;
 }
-.content .navbar .search-bar input {
+.content .left-content .navbar-left .search-bar input {
   margin: 12px 15px 0 25px;
   display: flex;
   width: 300px;
@@ -62,61 +67,109 @@ body {
   border-radius: 20px;
   padding: 0 20px 0 30px;
 }
-.content .navbar .search-bar .search {
+.content .left-content .navbar-left .search-bar input:active {
+  outline: none;
+}
+.content .left-content .navbar-left .search-bar .search {
   position: absolute;
   top: 45%;
   left: 9%;
   cursor: pointer;
 }
-.content .greetings {
-  height: 15%;
-  width: 70%;
+.content .left-content .greetings {
+  min-height: 15%;
+  width: 90%;
   background-color: #220d49;
   z-index: 2;
   margin: 0 10px 10px 30px;
   border-radius: 20px;
   color: white;
 }
-.content .greetings p {
+.content .left-content .greetings p {
   color: white;
   padding: 20px 20px 0 20px;
 }
-.content .greetings h2 {
+.content .left-content .greetings h2 {
   margin: 20px;
 }
-.content .activities {
-  height: 35%;
-  width: 70%;
+.content .left-content .activities {
+  min-height: 35%;
+  width: 90%;
   margin: 0 10px 10px 30px;
   background-color: white;
   border-radius: 20px;
 }
-.content .activities h4 {
+.content .left-content .activities h4 {
   padding: 20 20 0 20;
 }
-.content .tasks {
-  width: 70%;
+.content .left-content .tasks {
+  width: 90%;
   margin: 0 10px 10px 30px;
 }
-.content .tasks h4 {
+.content .left-content .tasks h4 {
   margin: 0 10px 0 15;
 }
-.content .tasks .heading {
+.content .left-content .tasks .heading {
   display: flex;
   padding: 0;
   margin: 5 10 10 15;
   justify-content: space-between;
 }
-.content .tasks .heading li {
+.content .left-content .tasks .heading li {
   list-style-type: none;
   text-decoration: none;
+  width: 80px;
+  text-align: center;
 }
-.content .tasks .cards {
-  height: 5%;
+.content .left-content .tasks .cards {
+  min-height: 5%;
   background-color: white;
   width: 100%;
   border-radius: 20px;
   margin: 0 0 10px 0;
+}
+.content .left-content .tasks .cards .values {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  justify-content: space-between;
+  margin: 0 10 0 15;
+}
+.content .left-content .tasks .cards .values li {
+  list-style-type: none;
+  width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .right-content {
+  width: 500px;
+}
+.content .right-content .navbar-right {
+  margin: 30px 0 10px 30px;
+  display: flex;
+}
+.content .right-content .calendar {
+  width: 85%;
+  height: 40%;
+  background-color: white;
+  margin: auto;
+  margin-bottom: 15px;
+  border-radius: 20px;
+}
+.content .right-content .cards-right {
+  width: 85%;
+  height: 10%;
+  background-color: white;
+  margin: auto;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+.content .right-content .cards-right i {
+  font-size: 30px;
+  vertical-align: middle;
+  text-align: center;
+  margin: 20 15 20 15;
 }
 
 /*# sourceMappingURL=style.css.map */

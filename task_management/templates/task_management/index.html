@@ -2,10 +2,11 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'task_management/style.css' %}">
 <script src="https://kit.fontawesome.com/7e1f669ced.js" crossorigin="anonymous"></script>
+
 <body>
 <header class="sidebar">
         <div class ="top">
-        
+        {{user.username}}
         </div>
         <div class ="mid">
                 <i class="fas fa-synagogue"style="font-size:40px" ></i>
@@ -19,7 +20,8 @@
 
 </header>
 <section class="content">
-<div class="navbar">
+<div class="left-content">
+<div class="navbar-left">
 <h3>Dashboard</h3>
 <form class="search-bar">
 <input type="text" value=" Search" name="search">
@@ -28,12 +30,13 @@
 </form>
 </div>
 <div class="greetings">
-<p>Good Morning !</p>
+<p>Good Morning {{user.username}}!</p>
 <h2> Check your daily tasks and schedules </h2>
 
 </div>
 <div class="activities">
 <h4>Activities</h4>
+<canvas id="myChart" width="400" height="180"></canvas>
 </div>
 <div class="tasks">
 <h4>Today's tasks</h4>
@@ -47,10 +50,82 @@
     <li>Status</li>
     <li>Action</li>
   </ul>
-  <div class="cards"></div>
-  <div class="cards"></div>
-  <div class="cards"></div>
+  
+
+  {% for i in fields %}
+  <div class="cards">
+  <ul class="values">
+  <li>{{i.department}}</li>
+  <li>{{i.stage}}</li>
+  <li>{{i.assigned}}</li>
+  <li>{{i.team}}</li>
+  <li>{{i.Date}}</li>
+  <li>{{i.Status}}</li>
+  <li>{{i.Action}}</li>
+  </ul>
+  </div>
+  {% endfor %}
+</div>
+</div>
+<div class="right-content">
+<div class="navbar-right">
+<h3><i class="far fa-calendar-alt"></i>
+<span id="date"></span></h3>
+</div>
+<div class="calendar"></div>
+<div class="cards-right">
+   <p><i class="fas fa-rocket"></i>Open Projects</p>
+   
+   
+</div>
+<div class="cards-right">
+   <p><i class="fas fa-trophy"></i>Successfully Completed</p>
+</div>
+<div class="cards-right">
+   <p><i class="fas fa-award"></i>Earnings</p>
+</div>
+
 </div>
     
 </section>
+<script src="{% static 'task_management/main.js' %}"></script>
+<script>
+var ctx = document.getElementById('myChart');
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+</script>
 </body>
